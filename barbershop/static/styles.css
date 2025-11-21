@@ -26,15 +26,12 @@ body {
 /* --- HERO SECTION (Topo) --- */
 
 .hero {
-    /* Imagem de fundo e efeito escurecido/grayscale */
-    background: url('caminho-para-sua-imagem.jpg') no-repeat center center/cover;
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     color: #fff;
-    /* Efeito de escurecimento sutil (grayscale + escurecer) */
     position: relative;
     z-index: 1;
 }
@@ -46,8 +43,11 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.4); /* Escurecimento */
-    filter: grayscale(100%); /* Cinza */
+    background: url('img/imghome_barba.jpg') no-repeat center center/cover;
+    filter: blur(1px) grayscale(50%);
+    transform: scale(1.03);
+    background-color: rgba(0, 0, 0, 0.9);
+    background-blend-mode: multiply;
     z-index: -1;
 }
 
@@ -61,9 +61,9 @@ body {
 }
 
 .hero-content h1 {
-    font-size: 5rem;
+    font-size: 6rem;
     font-weight: 700;
-    margin: 10px 0;
+    margin: 5px 0;
     letter-spacing: 5px;
 }
 
@@ -71,6 +71,37 @@ body {
     font-weight: 300;
     letter-spacing: 3px;
     font-size: 0.8rem;
+}
+
+.barberia-moldura {
+    /* 1. Transforma em bloco para aceitar padding e border */
+    display: inline-block;
+
+    /* 2. Padding para dar respiro ao texto e espaço para a borda */
+    padding: 8px 15px;
+
+    /* 3. Borda Simples (A moldura) */
+    border: 1px solid #ffffff; /* Borda branca fina */
+    border-radius: 4px; /* Opcional: Borda levemente arredondada */
+
+    /* 4. Estilo do texto (garantindo que ele fique legível) */
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: 400;
+    letter-spacing: 5px;
+
+    /* 5. Sombra interna para dar uma leve profundidade (Opcional) */
+    box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.2);
+}
+
+/* Opcional: Se quiser que o título "BARBEARIA" fique ligeiramente acima */
+.hero-content p:first-child {
+    font-size: 1.1rem;
+    font-weight: 400;
+    letter-spacing: 5px;
+
+    /* AJUSTAR AQUI: Reduza o margin-bottom */
+    margin-bottom: 1px; /* De 20px para 5px (ou ajuste conforme seu gosto) */
 }
 
 /* --- NAVBAR --- */
@@ -81,15 +112,7 @@ body {
     align-items: center;
     width: 100%;
     padding: 20px 0;
-}
 
-.navbar .logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #fff;
-    border: 1px solid #fff;
-    padding: 5px 10px;
-    margin: 0 50px;
 }
 
 .navbar ul {
@@ -103,7 +126,13 @@ body {
     font-size: 0.75rem;
     font-weight: 400;
     margin: 0 15px;
-    transition: color 0.3s;
+    transition: transform 0.3s ease, color 0.3s;
+    display: inline-block;
+}
+
+.navbar ul li a:hover {
+    color: #fff;
+    transform: scale(1.30);
 }
 
 /* --- SEÇÃO DE SERVIÇOS --- */
